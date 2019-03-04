@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ProductAddComponent } from './product-add/product-add.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     MenuComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    ProductAddComponent
   ],
   imports: [
 BrowserModule,

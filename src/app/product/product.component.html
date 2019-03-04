@@ -23,12 +23,13 @@
                     <label for="image">Image</label>
                     <input type="text" class="form-control" [(ngModel)]="pro.image" [ngModelOptions]="{standalone: true}" placeholder="image">
                 </div>
-                <button type="button" class="btn btn-primary mr-2" (click)="updateProduct">Submit</button>
+                <button type="button" class="btn btn-primary mr-2" (click)="updateProduct()">Submit</button>
                 <button type="button" class="btn" (click)="close()">Close</button>
             </form>
         </div>
     </div>
 
+    <a routerLink="/product/add"><button class="btn btn-success">Add Product</button></a>
 
     <div class="card text-left mt-4">
         <div class="card-header bg-primary text-white">Product
@@ -53,7 +54,7 @@
                         <td>{{product.image.substring(0,25)}} ...</td>
                         <td>
                             <button class="btn btn-success mr-2" (click)="clickEditProduct(product)">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
                         </td>
                     </tr>
                 </tbody>

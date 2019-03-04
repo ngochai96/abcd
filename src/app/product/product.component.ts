@@ -30,6 +30,17 @@ export class ProductComponent implements OnInit {
   }
 
   updateProduct() : void{
-    
+    console.log('start');
+    this.productServices.updateProduct(this.pro).subscribe(data=>console.log(data));
+    this.pro = null;
+  }
+
+  deleteProduct(id:number):void{
+    const kt = confirm("Bạn có muốn xóa ko?");
+    if(kt === true){
+      this.productServices.deleteProduct(id).subscribe(data=>{
+        this.products.filter(product => product.id == id)
+      })
+    }
   }
 }
