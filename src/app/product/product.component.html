@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="alert alert-danger text-white mt-4" role="alert">
+        Quản lý sản phẩm
+    </div>
+
+    <div class="card text-left" *ngIf="pro">
+        <div class="card-header bg-success text-white">Edit</div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="pro.id" [ngModelOptions]="{standalone: true}" readonly placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="pro.name" [ngModelOptions]="{standalone: true}"  placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" [(ngModel)]="pro.price" [ngModelOptions]="{standalone: true}" placeholder="price">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="text" class="form-control" [(ngModel)]="pro.image" [ngModelOptions]="{standalone: true}" placeholder="image">
+                </div>
+                <button type="button" class="btn btn-primary mr-2" (click)="updateProduct">Submit</button>
+                <button type="button" class="btn" (click)="close()">Close</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card text-left mt-4">
+        <div class="card-header bg-primary text-white">Product
+            <i class="fas fa-plus float-right"></i>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>URL</th>
+                        <th width="20%">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td scope="row">{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.image.substring(0,25)}} ...</td>
+                        <td>
+                            <button class="btn btn-success mr-2" (click)="clickEditProduct(product)">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
